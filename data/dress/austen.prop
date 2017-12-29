@@ -1,0 +1,38 @@
+# location of the training file
+trainFileList = train0.tsv,train1.tsv,train2.tsv,train3.tsv,train4.tsv,train5.tsv,train6.tsv,train7.tsv,train8.tsv,train9.tsv,train10.tsv,train11.tsv,train12.tsv,train13.tsv,train14.tsv,train15.tsv,train16.tsv,train17.tsv,train18.tsv,train19.tsv,train20.tsv,train21.tsv,train22.tsv,train23.tsv,train24.tsv,train25.tsv,train26.tsv,train27.tsv,train28.tsv,train29.tsv,train30.tsv,train31.tsv,train32.tsv,train33.tsv,train34.tsv,train35.tsv,train36.tsv
+#location where you would like to save (serialize to) your
+#classifier; adding .gz at the end automatically gzips the file,
+#making it faster and smaller
+serializeTo = ner-model.ser.gz
+
+#structure of your training file; this tells the classifier
+#that the word is in column 0 and the correct answer is in
+#column 1
+map = word=0,answer=1
+
+#these are the features we'd like to train with
+#some are discussed below, the rest can be
+#understood by looking at NERFeatureFactory
+useClassFeature=true
+useWord=true
+useNGrams=true
+#no ngrams will be included that do not contain either the
+#beginning or end of the word
+noMidNGrams=true
+useDisjunctive=true
+maxNGramLeng=6
+usePrev=true
+useNext=true
+useSequences=true
+usePrevSequences=true
+maxLeft=1
+#the next 4 deal with word shape features
+useTypeSeqs=true
+useTypeSeqs2=true
+useTypeySequences=true
+wordShape=chris2useLC
+
+qnSize = 2
+saveFeatureIndexToDisk = true
+featureDiffThresh=0.05
+useObservedSequencesOnly=true
